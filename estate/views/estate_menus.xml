@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="real_estate_properties_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form,calendar,graph,kanban</field>
+    </record>
+
+
+    
+    <record id="MyProperty_action" model="ir.actions.act_window">
+        <field name="name">My Property</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form,calendar,graph,search</field>
+        <field name="context">{'search_default_garden':1,'is_my_property':True}</field>
+
+    </record>
+
+
+
+    <menuitem id="menu_real_estate_root" name="Real Estate">
+        <menuitem id="menu_real_estate_advertisment" name="Advertisment">
+        <menuitem id="menu_real_estate_action" action="real_estate_properties_action"/>
+        <menuitem id="menu_real_estate_action_my_property" action="MyProperty_action" name="My Property"/>
+
+
+        
+        </menuitem>
+
+    </menuitem>
+   
+    
+
+
+
+
+
+
+    <record id="estate_property_type_action" model="ir.actions.act_window">
+        <field name="name">Property Types</field>
+        <field name="res_model">estate.property.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_real_estate_property_type" name="Property Type" parent="menu_real_estate_root"/>
+    
+    
+
+    <menuitem id="menu_real_estate_property_type_action" parent="menu_real_estate_property_type" action="estate_property_type_action"/>
+
+
+
+    <record id="estate_property_tag_action" model="ir.actions.act_window">
+        <field name="name" >Property Tag</field>
+        <field name="res_model">estate.property.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_real_estate_property_tag_action" parent="menu_real_estate_property_type" action="estate_property_tag_action"/>
+
+    
+
+    
+
+
+
+  
+
+   
+    
+    <!-- Accepted offers view  -->
+    <record id="estate_property_accepted_offer_action" model="ir.actions.act_window">
+        <field name="name" >Accepted offers</field>
+        <field name="res_model">estate.property.offer</field>
+        <field name="domain">[('status','=','accepted'),('property_id','=',active_id)]</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+   
+     
+
+
+</odoo>
+
