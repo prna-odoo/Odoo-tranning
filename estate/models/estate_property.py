@@ -18,7 +18,7 @@ class estate_property_tag(models.Model):
 class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "estate property"
-
+    #todo
     # _inherit = ['image.mixin','mail.thread','mail.activity.mixin',]
 
     def _get_description(self):
